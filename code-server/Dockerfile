@@ -1,3 +1,5 @@
+
+LABEL org.opencontainers.image.source https://github.com/megah3rtz/container_images
 FROM lscr.io/linuxserver/code-server
 RUN apt-get update -y && \
 apt-get install wget unzip python3-pip -y && \
