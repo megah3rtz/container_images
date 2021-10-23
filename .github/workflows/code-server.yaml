@@ -8,8 +8,6 @@ jobs:
   build-container-image:
     runs-on: ubuntu-latest
     steps:
-      - name: Install required packages
-        run: sudo apt-get install unzip wget -y
 
       - name: Checkout the repo
         uses: actions/checkout@v2
