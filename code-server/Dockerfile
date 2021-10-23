@@ -1,6 +1,6 @@
 
-LABEL org.opencontainers.image.source https://github.com/megah3rtz/container_images
 FROM lscr.io/linuxserver/code-server
+LABEL org.opencontainers.image.source https://github.com/megah3rtz/container_images
 RUN apt-get update -y && \
 apt-get install wget unzip python3-pip -y && \
 pip3 install azure-cli ansible && \
