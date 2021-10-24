@@ -6,6 +6,8 @@ env:
 
 jobs:
   build-container-image:
+    env:
+      DOCKER_PLATFORM: linux/arm64
     runs-on: ubuntu-latest
     steps:
 
@@ -24,5 +26,5 @@ jobs:
         with:
           context: ./code-server/
           push: true
-          tags: ghcr.io/${{ github.repository_owner }}/code-server:latest
+          tags: ghcr.io/${{ github.repository_owner }}/code-server:arm64-latest
           labels: latest
