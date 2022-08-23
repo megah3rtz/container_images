@@ -1,17 +1,18 @@
 
-FROM lscr.io/linuxserver/code-server
+FROM lscr.io/linuxserver/code-server:latest
+ARG tfversion=1.2.7
 LABEL org.opencontainers.image.source https://github.com/megah3rtz/container_images
 RUN apt-get update -y && \
-apt-get install wget unzip python3-pip -y && \
-pip3 install azure-cli ansible && \
-apt-get clean && \
+  apt-get install wget unzip python3-pip -y && \
+  pip3 install azure-cli ansible && \
+  apt-get clean && \
   rm -rf \
     /tmp/* \
     /var/lib/apt/lists/* \
     /var/tmp/*
-RUN wget https://releases.hashicorp.com/terraform/1.0.9/terraform_1.0.9_linux_amd64.zip && \
-unzip terraform_1.0.9_linux_amd64.zip && \
-rm -rf terraform_1.0.9_linux_amd64.zip && \
-mv terraform /usr/local/bin/
+RUN wget https://releases.hashicorp.com/terraform/${tfversion}/terraform_${tfversion}_linux_amd64.zip && \
+  unzip terraform_${tfversion}_linux_amd64.zip && \
+  rm -rf terraform_${tfversion}_linux_amd64.zip && \
+  mv terraform /usr/local/bin/
 
 ENTRYPOINT /init
